@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模擬多機関連携会議 準備説明 | 就労選択支援事業</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .date-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card-icon.overview { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+        .card-icon.schedule { background: linear-gradient(45deg, #43e97b, #38f9d7); }
+        .card-icon.materials { background: linear-gradient(45deg, #fa709a, #fee140); }
+        .card-icon.goals { background: linear-gradient(45deg, #a8edea, #fed6e3); }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .card-content {
+            color: #666;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .info-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list i {
+            color: #667eea;
+            width: 16px;
+        }
+
+        .timeline {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .timeline h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-time {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .material-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .material-item.clickable {
+            cursor: pointer;
+        }
+
+        .material-item.clickable:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .material-title {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .material-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .cta-section {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* モーダルウィンドウ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .close:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            line-height: 1.8;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .pdf-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            background: #f8f9fa;
+            border-color: #ff9800;
+            color: #ff9800;
+            transform: translateX(5px);
+        }
+
+        .pdf-link i {
+            margin-right: 0.5rem;
+            color: #ff5722;
+        }
+
+        .modal-body h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-body h3 {
+            color: #667eea;
+            margin: 2rem 0 1.2rem 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-body h4 {
+            color: #555;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .modal-body ul {
+            margin: 0.8rem 0;
+            padding-left: 1.2rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+        }
+
+        .modal-body strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .info-box ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .info-box li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .ability-grid, .behavior-grid, .home-life-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .ability-good, .behavior-good {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+
+        .ability-challenge, .behavior-support {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .evaluation-table, .assessment-table, .communication-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .evaluation-table th, .evaluation-table td,
+        .assessment-table th, .assessment-table td,
+        .communication-table th, .communication-table td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .evaluation-table th, .assessment-table th, .communication-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .ability-grid, .behavior-grid, .home-life-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-users"></i>
+                    <h1>（模擬）多機関連携会議</h1>
+                </div>
+                <div class="date-badge">
+                    <i class="fas fa-calendar-alt"></i>
+                    2025年9月4日（木）
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h2>（模擬）多機関連携会議</h2>
+                <p>就労選択支援事業における効果的な連携体制の構築に向けて</p>
+            </section>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon overview">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h3>開催概要</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="info-list">
+                            <li><i class="fas fa-calendar"></i> 2025年9月4日（木）</li>
+                            <li><i class="fas fa-clock"></i> 15:00～16:30（90分）</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 南部公民館 会議室</li>
+                            <li><i class="fas fa-users"></i> 多機関連携メンバー</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon goals">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h3>目的・背景</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>就労選択支援事業の開始（2025年10月1日）に向けて、実際のケースを想定した模擬会議を実施し、多機関連携の手順と役割分担を明確化します。</p>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check"></i> 連携プロセスの理解促進</li>
+                            <li><i class="fas fa-check"></i> 役割分担の明確化</li>
+                            <li><i class="fas fa-check"></i> 課題の事前抽出</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon materials">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <h3>準備資料</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>実際のケースに基づいた模擬事例資料を準備済み</p>
+                        <div class="info-box" style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 1rem 0; padding: 0.8rem; border-radius: 4px; font-size: 0.9rem;">
+                            <i class="fas fa-exclamation-triangle" style="color: #856404; margin-right: 0.5rem;"></i>
+                            <strong>重要：</strong>以下の資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+                        </div>
+                        <div class="materials-grid">
+                            <div class="material-item clickable" onclick="openMaterial('case_overview')">
+                                <div class="material-title">事例概要 <i class="fas fa-external-link-alt"></i></div>
+                                <div class="material-desc">基本情報・現状</div>
+                            </div>
+                            <div class="material-item clickable" onclick="openMaterial('school_info')">
+                                <div class="material-title">学校情報提供書 <i class="fas fa-external-link-alt"></i></div>
+                                <div class="material-desc">教育現場からの情報</div>
+                            </div>
+                            <div class="material-item clickable" onclick="openMaterial('parent_info')">
+                                <div class="material-title">保護者情報提供書 <i class="fas fa-external-link-alt"></i></div>
+                                <div class="material-desc">家庭での様子</div>
+                            </div>
+                            <div class="material-item clickable" onclick="openMaterial('work_assessment')">
+                                <div class="material-title">就労アセスメント <i class="fas fa-external-link-alt"></i></div>
+                                <div class="material-desc">作業能力評価</div>
+                            </div>
+                            <div class="material-item clickable" onclick="openMaterial('case_meeting')">
+                                <div class="material-title">ケース会議議事録 <i class="fas fa-external-link-alt"></i></div>
+                                <div class="material-desc">検討プロセス</div>
+                            </div>
+                            <div class="material-item clickable" onclick="openMaterial('regional_assessment')">
+                                <div class="material-title">地域アセスメント <i class="fas fa-external-link-alt"></i></div>
+                                <div class="material-desc">地域資源情報</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon schedule">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>期待される効果</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="info-list">
+                            <li><i class="fas fa-lightbulb"></i> 実践的なスキル向上</li>
+                            <li><i class="fas fa-handshake"></i> 機関間の連携強化</li>
+                            <li><i class="fas fa-chart-line"></i> サービス品質向上</li>
+                            <li><i class="fas fa-users-cog"></i> チームワーク向上</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <section class="timeline">
+                <h3><i class="fas fa-clock"></i> 当日のタイムライン</h3>
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">開会・趣旨説明</div>
+                        <div class="timeline-desc">模擬会議の目的と進行について</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">15:10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">事例紹介</div>
+                        <div class="timeline-desc">模擬ケースの概要と背景説明</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">15:25</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">多機関連携会議（模擬）</div>
+                        <div class="timeline-desc">実際の会議形式での検討・議論</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">振り返り・評価</div>
+                        <div class="timeline-desc">プロセスの検証と改善点の抽出</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">16:20</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">まとめ・次回予告</div>
+                        <div class="timeline-desc">学習内容の整理と今後の展開</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h3>実践に向けて</h3>
+                <p>2025年10月1日の就労選択支援事業開始に向けて、<br>効果的な多機関連携体制を構築しましょう。</p>
+                <a href="#" class="btn" onclick="openDownloadModal()">
+                    <i class="fas fa-download"></i>
+                    資料ダウンロード
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 就労選択支援事業 多機関連携プロジェクト</p>
+            <p><i class="fas fa-exclamation-triangle"></i> <strong>重要な注意事項：</strong>本資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。</p>
+            <p><i class="fas fa-shield-alt"></i> 外部配布禁止。研修・学習目的のみでの使用に限定します。</p>
+        </div>
+    </footer>
+
+    <!-- モーダルウィンドウ -->
+    <div id="materialModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">資料詳細</h2>
+                <button class="close" onclick="closeMaterial()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- 資料内容がここに表示されます -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ダウンロード選択モーダル -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2 id="downloadModalTitle">資料閲覧・ダウンロード</h2>
+                <span class="close" onclick="closeDownloadModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="downloadModalBody">
+                <div style="background: #e3f2fd; border-left: 4px solid #2196f3; margin: 0 0 2rem 0; padding: 1.5rem; border-radius: 4px;">
+                    <i class="fas fa-mobile-alt" style="color: #1976d2; margin-right: 0.5rem;"></i>
+                    <strong>📱 Web閲覧がおすすめです！</strong><br>
+                    <span style="font-size: 0.9rem; color: #555;">スマホでも見やすく、会議中もサッと確認できます</span>
+                </div>
+                
+                <div class="download-options">
+                    <div class="download-section">
+                        <h3 style="color: #2196f3; margin-bottom: 1rem;">
+                            <i class="fas fa-globe"></i> Web閲覧（推奨）
+                        </h3>
+                        <p style="margin-bottom: 1.5rem; color: #666;">上部の「準備資料」セクションから各資料をクリックしてご覧ください</p>
+                        <button class="btn" onclick="closeDownloadModal(); scrollToMaterials();" style="background: #2196f3; margin-bottom: 2rem;">
+                            <i class="fas fa-arrow-up"></i> 準備資料セクションへ
+                        </button>
+                    </div>
+                    
+                    <div class="download-section" style="border-top: 1px solid #eee; padding-top: 2rem;">
+                        <h3 style="color: #ff9800; margin-bottom: 1rem;">
+                            <i class="fas fa-file-pdf"></i> PDFダウンロード
+                        </h3>
+                        <p style="margin-bottom: 1.5rem; color: #666;">印刷やオフライン閲覧をご希望の方はこちら</p>
+                        
+                        <div class="pdf-options" style="display: grid; gap: 1rem;">
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin: 0 0 0.5rem 0; color: #333;">
+                                    <i class="fas fa-file-alt"></i> 個別資料
+                                </h4>
+                                <div style="display: grid; gap: 0.5rem; margin-top: 1rem;">
+                                    <a href="#" class="pdf-link" onclick="generatePDF('case_overview')">
+                                        <i class="fas fa-download"></i> 事例概要.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('school_info')">
+                                        <i class="fas fa-download"></i> 学校情報提供書.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('parent_info')">
+                                        <i class="fas fa-download"></i> 保護者情報提供書.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('work_assessment')">
+                                        <i class="fas fa-download"></i> 作業アセスメント記録.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('meeting_minutes')">
+                                        <i class="fas fa-download"></i> ケース会議議事録.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('regional_assessment')">
+                                        <i class="fas fa-download"></i> 地域アセスメント.pdf
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin: 0 0 0.5rem 0; color: #333;">
+                                    <i class="fas fa-file-archive"></i> 一括ダウンロード
+                                </h4>
+                                <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 1rem 0;">全資料をまとめてダウンロード</p>
+                                <a href="#" class="btn" onclick="generateAllPDF()" style="background: #ff9800; width: 100%;">
+                                    <i class="fas fa-download"></i> 模擬会議資料一式.pdf
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 2rem 0 0 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+                    <i class="fas fa-exclamation-triangle" style="color: #856404; margin-right: 0.5rem;"></i>
+                    <strong>注意：</strong>これらの資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 準備資料のデータ
+        const materialsData = {
+            'case_overview': {
+                title: '事例概要',
+                content: `
+                <h2>📋 事例概要</h2>
+                <div class="info-box">
+                    <h3>対象者：Cさん（18歳男性）</h3>
+                    <ul>
+                        <li>熊本市立みどり特別支援学校高等部3年在籍</li>
+                        <li>軽度知的障害（療育手帳B1）+ 自閉スペクトラム症</li>
+                        <li>卒業後の進路について就労継続支援B型事業所を検討中</li>
+                    </ul>
+                </div>
+                <h3>🏫 学校生活の様子</h3>
+                <ul>
+                    <li>文字の読み書きは可能、計算や抽象的概念は課題</li>
+                    <li>規則正しい生活リズム、遅刻・欠席少ない</li>
+                    <li>同級生との関係良好、穏やかな性格</li>
+                    <li>集団活動では指示を理解し真面目に参加</li>
+                </ul>
+                <h3>💼 実習経験</h3>
+                <ul>
+                    <li><strong>校内実習：</strong>清掃作業、軽作業（袋詰め、シール貼り等）</li>
+                    <li><strong>現場実習：</strong>市内B型事業所で2回実習（各2週間）</li>
+                    <li>作業への取り組み姿勢は良好だが、作業速度がやや遅い</li>
+                    <li>コミュニケーションは必要最小限</li>
+                </ul>
+                <h3>🏠 家庭状況</h3>
+                <ul>
+                    <li>両親・妹（中学生）との4人家族</li>
+                    <li>家庭では手伝いもでき、身の回りのことは概ね自立</li>
+                    <li>公共交通機関は家族同伴であれば利用可能</li>
+                </ul>
+                <h3>💭 本人・保護者の希望</h3>
+                <div class="ability-grid">
+                    <div class="ability-good">
+                        <h4>本人の希望</h4>
+                        <ul>
+                            <li>働きたい気持ちはあるが、どのような仕事が合うかわからない</li>
+                            <li>軽作業（袋詰め、商品仕分け等）は楽しかった</li>
+                            <li>優しい人たちと一緒に働きたい</li>
+                        </ul>
+                    </div>
+                    <div class="ability-challenge">
+                        <h4>保護者の希望</h4>
+                        <ul>
+                            <li>本人が安心して働ける環境</li>
+                            <li>無理をせず、本人のペースで成長できる職場</li>
+                            <li>将来的な自立への支援</li>
+                        </ul>
+                    </div>
+                </div>
+                `
+            },
+            'school_info': {
+                title: '学校からの情報提供書',
+                content: `
+                <h2>🏫 学校からの情報提供書</h2>
+                <div class="info-box">
+                    <h3>基本情報</h3>
+                    <ul>
+                        <li><strong>氏名：</strong>Cさん（18歳男性）</li>
+                        <li><strong>在籍校：</strong>熊本市立みどり特別支援学校高等部3年</li>
+                        <li><strong>障害名：</strong>知的障害、自閉スペクトラム症</li>
+                        <li><strong>療育手帳：</strong>B1</li>
+                    </ul>
+                </div>
+                <h3>📚 学習・認知面の特徴</h3>
+                <div class="ability-grid">
+                    <div class="ability-good">
+                        <h4>✅ 得意な分野</h4>
+                        <ul>
+                            <li>文字の読み書き（小学校高学年レベル）</li>
+                            <li>基本的な四則演算（一桁計算）</li>
+                            <li>記憶力（興味分野は詳細に記憶）</li>
+                            <li>規則性の理解</li>
+                        </ul>
+                    </div>
+                    <div class="ability-challenge">
+                        <h4>⚠️ 課題がある分野</h4>
+                        <ul>
+                            <li>抽象的思考</li>
+                            <li>複数指示の同時処理</li>
+                            <li>時間の概念（曖昧な表現）</li>
+                            <li>計画立案</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>👥 行動・社会性の特徴</h3>
+                <div class="behavior-grid">
+                    <div class="behavior-good">
+                        <h4>✅ 良好な面</h4>
+                        <ul>
+                            <li>規則正しい生活</li>
+                            <li>真面目な取り組み</li>
+                            <li>穏やかな性格</li>
+                            <li>集団参加</li>
+                        </ul>
+                    </div>
+                    <div class="behavior-support">
+                        <h4>🤝 支援が必要な面</h4>
+                        <ul>
+                            <li>コミュニケーション（受け身的）</li>
+                            <li>変化への対応</li>
+                            <li>問題解決</li>
+                            <li>自己主張</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>🔧 実習・作業面の評価</h3>
+                <table class="evaluation-table">
+                    <tr>
+                        <th>作業内容</th>
+                        <th>評価</th>
+                        <th>備考</th>
+                    </tr>
+                    <tr>
+                        <td>清掃作業</td>
+                        <td>○</td>
+                        <td>手順を覚えれば丁寧に実施可能</td>
+                    </tr>
+                    <tr>
+                        <td>軽作業（袋詰め）</td>
+                        <td>○</td>
+                        <td>正確性は高いが速度はやや遅い</td>
+                    </tr>
+                    <tr>
+                        <td>シール貼り</td>
+                        <td>◎</td>
+                        <td>集中して取り組める</td>
+                    </tr>
+                    <tr>
+                        <td>データ入力</td>
+                        <td>△</td>
+                        <td>簡単な入力は可能だが時間がかかる</td>
+                    </tr>
+                </table>
+                `
+            },
+            'parent_info': {
+                title: '保護者からの情報提供書',
+                content: `
+                <h2>👨‍👩‍👧‍👦 保護者からの情報提供書</h2>
+                <div class="info-box">
+                    <h3>記入者情報</h3>
+                    <ul>
+                        <li><strong>記入者：</strong>母親</li>
+                        <li><strong>記入日：</strong>2025年8月25日</li>
+                        <li><strong>家族構成：</strong>父・母・本人・妹（中学生）の4人家族</li>
+                    </ul>
+                </div>
+                <h3>🌱 生育歴・発達の経過</h3>
+                <div class="info-box">
+                    <h4>乳幼児期（0-6歳）</h4>
+                    <p>1歳半頃から言葉の遅れ → 4歳時に診断 → 5歳から療育開始</p>
+                    <h4>学童期（小学校）</h4>
+                    <p>特別支援学級に入学 → 文字習得に時間 → 電車への強い興味</p>
+                    <h4>思春期〜現在</h4>
+                    <p>特別支援学校進学 → 実習経験 → 働くことへの意識芽生え</p>
+                </div>
+                <h3>🏠 家庭での様子</h3>
+                <div class="home-life-grid">
+                    <div class="ability-good">
+                        <h4>📅 日常生活</h4>
+                        <ul>
+                            <li><strong>起床・就寝：</strong>6:30起床、21:30就寝（規則正しい）</li>
+                            <li><strong>身辺自立：</strong>基本的なことは自分でできる</li>
+                            <li><strong>家事手伝い：</strong>食器洗い、洗濯物たたみなど積極的</li>
+                            <li><strong>金銭管理：</strong>小遣いは母親と一緒に管理</li>
+                        </ul>
+                    </div>
+                    <div class="ability-challenge">
+                        <h4>💬 コミュニケーション</h4>
+                        <ul>
+                            <li>日常的な会話は問題なし</li>
+                            <li>学校での出来事もよく話す</li>
+                            <li>困った時は黙り込むことが多い</li>
+                            <li>感情表現は控えめ</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>🎯 興味・関心</h3>
+                <ul>
+                    <li><strong>電車・交通機関：</strong>時刻表を覚えるのが得意、鉄道知識豊富</li>
+                    <li><strong>読書：</strong>図鑑や電車関連の本を好む</li>
+                    <li><strong>テレビ：</strong>ニュース、ドキュメンタリー番組</li>
+                    <li><strong>ゲーム：</strong>簡単なパズルゲーム</li>
+                </ul>
+                `
+            },
+            'work_assessment': {
+                title: '就労アセスメント記録',
+                content: `
+                <h2>🔍 就労アセスメント実施記録</h2>
+                <div class="info-box">
+                    <h3>実施概要</h3>
+                    <ul>
+                        <li><strong>実施期間：</strong>2025年8月20日〜22日（3日間）</li>
+                        <li><strong>実施場所：</strong>○○就労移行支援事業所</li>
+                        <li><strong>目的：</strong>就労選択支援における適性評価</li>
+                    </ul>
+                </div>
+                <h3>🔧 基本的作業能力の評価</h3>
+                <h4>作業①：軽作業（部品組み立て）</h4>
+                <table class="assessment-table">
+                    <tr>
+                        <th>評価項目</th>
+                        <th>1日目</th>
+                        <th>2日目</th>
+                        <th>3日目</th>
+                        <th>総合評価</th>
+                    </tr>
+                    <tr>
+                        <td>正確性</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>◎</td>
+                        <td>良好</td>
+                    </tr>
+                    <tr>
+                        <td>作業速度</td>
+                        <td>△</td>
+                        <td>△</td>
+                        <td>○</td>
+                        <td>やや遅い</td>
+                    </tr>
+                    <tr>
+                        <td>持続性</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>良好</td>
+                    </tr>
+                    <tr>
+                        <td>指示理解</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>良好</td>
+                    </tr>
+                </table>
+                <div class="info-box">
+                    <strong>所見：</strong>作業手順の理解良好、正確性高い。速度は基準の約70%だが品質重視。2時間の連続作業も集中力維持。
+                </div>
+                <h4>作業②：清掃作業</h4>
+                <table class="assessment-table">
+                    <tr>
+                        <th>評価項目</th>
+                        <th>1日目</th>
+                        <th>2日目</th>
+                        <th>3日目</th>
+                        <th>総合評価</th>
+                    </tr>
+                    <tr>
+                        <td>作業の丁寧さ</td>
+                        <td>◎</td>
+                        <td>◎</td>
+                        <td>◎</td>
+                        <td>優秀</td>
+                    </tr>
+                    <tr>
+                        <td>効率性</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>良好</td>
+                    </tr>
+                    <tr>
+                        <td>自主性</td>
+                        <td>△</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>向上傾向</td>
+                    </tr>
+                </table>
+                `
+            },
+            'case_meeting': {
+                title: 'ケース会議議事録',
+                content: `
+                <h2>📝 ケース会議議事録</h2>
+                <div class="info-box">
+                    <h3>会議概要</h3>
+                    <ul>
+                        <li><strong>開催日時：</strong>2025年8月28日（木）15:00〜16:30</li>
+                        <li><strong>会議形式：</strong>対面会議</li>
+                        <li><strong>議題：</strong>Cさんの就労選択支援に関する検討</li>
+                    </ul>
+                </div>
+                <h3>👥 参加者</h3>
+                <ul>
+                    <li><strong>教育関係者：</strong>○○特別支援学校 進路指導主事、担任</li>
+                    <li><strong>福祉関係者：</strong>××相談支援事業所、○○就労移行支援事業所</li>
+                    <li><strong>行政関係者：</strong>熊本市障がい保健福祉課</li>
+                    <li><strong>当事者・家族：</strong>Cさん本人、保護者（母親）</li>
+                </ul>
+                <h3>📋 主な検討内容</h3>
+                <div class="ability-grid">
+                    <div class="ability-good">
+                        <h4>✅ 確認された強み</h4>
+                        <ul>
+                            <li>真面目で責任感のある取り組み</li>
+                            <li>清掃作業への高い適性</li>
+                            <li>規則正しい生活習慣</li>
+                            <li>家族の協力的なサポート体制</li>
+                        </ul>
+                    </div>
+                    <div class="ability-challenge">
+                        <h4>⚠️ 検討が必要な課題</h4>
+                        <ul>
+                            <li>作業速度の向上</li>
+                            <li>一人での通勤練習</li>
+                            <li>コミュニケーション支援</li>
+                            <li>適切な事業所選択</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>💡 決定事項</h3>
+                <ul>
+                    <li><strong>就労選択支援の利用：</strong>10月から開始予定</li>
+                    <li><strong>追加実習：</strong>9月に新規事業所での実習実施</li>
+                    <li><strong>通勤練習：</strong>段階的な公共交通機関利用練習</li>
+                    <li><strong>次回会議：</strong>11月に進捗確認会議を開催</li>
+                </ul>
+                `
+            },
+            'regional_assessment': {
+                title: '地域アセスメント',
+                content: `
+                <h2>🌍 地域アセスメント</h2>
+                <div class="info-box">
+                    <h3>対象地域</h3>
+                    <ul>
+                        <li><strong>居住地域：</strong>熊本市中央区</li>
+                        <li><strong>通勤可能範囲：</strong>公共交通機関で1時間以内</li>
+                        <li><strong>評価実施日：</strong>2025年8月30日</li>
+                    </ul>
+                </div>
+                <h3>🏢 地域の就労系サービス事業所</h3>
+                <table class="evaluation-table">
+                    <tr>
+                        <th>事業所名</th>
+                        <th>サービス種別</th>
+                        <th>主な作業内容</th>
+                        <th>通勤アクセス</th>
+                    </tr>
+                    <tr>
+                        <td>○○ワークス</td>
+                        <td>就労継続支援B型</td>
+                        <td>軽作業、清掃</td>
+                        <td>市電で20分</td>
+                    </tr>
+                    <tr>
+                        <td>△△作業所</td>
+                        <td>就労継続支援B型</td>
+                        <td>パン製造、販売</td>
+                        <td>バスで15分</td>
+                    </tr>
+                    <tr>
+                        <td>□□センター</td>
+                        <td>就労移行支援</td>
+                        <td>PC作業、軽作業</td>
+                        <td>市電で25分</td>
+                    </tr>
+                </table>
+                <h3>🚌 公共交通機関の状況</h3>
+                <ul>
+                    <li><strong>市電：</strong>自宅から徒歩5分の停留場あり、主要事業所へのアクセス良好</li>
+                    <li><strong>バス：</strong>複数路線利用可能、朝夕の便数充実</li>
+                    <li><strong>乗り継ぎ：</strong>熊本駅での乗り継ぎで通勤範囲拡大</li>
+                </ul>
+                <h3>🏥 地域の支援機関</h3>
+                <ul>
+                    <li><strong>相談支援事業所：</strong>3箇所（徒歩・自転車圏内）</li>
+                    <li><strong>障害者就業・生活支援センター：</strong>1箇所</li>
+                    <li><strong>医療機関：</strong>かかりつけクリニック（市電で10分）</li>
+                </ul>
+                `
+            }
+        };
+
+        // モーダルを開く関数
+        function openMaterial(materialId) {
+            const material = materialsData[materialId];
+            if (material) {
+                document.getElementById('modalTitle').textContent = material.title;
+                
+                // コンテンツに注意書きを追加
+                const contentWithWarning = material.content + `
+                <div style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 2rem 0 0 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+                    <i class="fas fa-exclamation-triangle" style="color: #856404; margin-right: 0.5rem;"></i>
+                    <strong>注意：</strong>この事例は模擬会議用に作成した架空のものです。実在する人物・団体とは一切関係ありません。
+                </div>`;
+                
+                document.getElementById('modalBody').innerHTML = contentWithWarning;
+                document.getElementById('materialModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // モーダルを閉じる関数
+        function closeMaterial() {
+            document.getElementById('materialModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 全資料一括PDF生成
+        function generateAllPDF() {
+            const printWindow = window.open('', '_blank');
+            let allContent = '';
+            
+            Object.keys(materialsData).forEach(key => {
+                const material = materialsData[key];
+                allContent += `
+                    <div style="page-break-before: always; margin-bottom: 2rem;">
+                        <h1>${material.title}</h1>
+                        ${material.content}
+                    </div>
+                `;
+            });
+            
+            allContent += `
+            <div style="background: #fff3cd; border: 1px solid #ffc107; margin: 2rem 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem; page-break-inside: avoid;">
+                <strong>重要な注意事項：</strong>これらの資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+            </div>`;
+            
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>模擬多機関連携会議資料一式</title>
+                    <meta charset="utf-8">
+                    <style>
+                        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.6; margin: 2rem; }
+                        h1, h2, h3 { color: #333; }
+                        .info-box { background: #f8f9fa; border-left: 4px solid #667eea; padding: 1rem; margin: 1rem 0; }
+                        ul { padding-left: 1.5rem; }
+                        li { margin: 0.5rem 0; }
+                        @media print { body { margin: 1rem; } }
+                    </style>
+                </head>
+                <body>
+                    <h1 style="text-align: center; margin-bottom: 3rem;">（模擬）多機関連携会議 資料一式</h1>
+                    ${allContent}
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.focus();
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
+        }
+
+        // モーダル外クリックで閉じる
+        window.onclick = function(event) {
+            const materialModal = document.getElementById('materialModal');
+            const downloadModal = document.getElementById('downloadModal');
+            
+            if (event.target === materialModal) {
+                closeMaterial();
+            }
+            if (event.target === downloadModal) {
+                closeDownloadModal();
+            }
+        }
+
+        // ダウンロードモーダルを開く関数
+        function openDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // ダウンロードモーダルを閉じる関数
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 準備資料セクションにスクロール
+        function scrollToMaterials() {
+            const materialsSection = document.querySelector('.card:nth-child(3)');
+            materialsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // 個別PDF生成（現在はブラウザ印刷機能を使用）
+        function generatePDF(materialId) {
+            const material = materialsData[materialId];
+            if (material) {
+                // 新しいウィンドウで資料を開いて印刷
+                const printWindow = window.open('', '_blank');
+                const contentWithWarning = material.content + `
+                <div style="background: #fff3cd; border: 1px solid #ffc107; margin: 2rem 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem; page-break-inside: avoid;">
+                    <strong>注意：</strong>この事例は模擬会議用に作成した架空のものです。実在する人物・団体とは一切関係ありません。
+                </div>`;
+                
+                printWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>${material.title}</title>
+                        <meta charset="utf-8">
+                        <style>
+                            body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.6; margin: 2rem; padding-bottom: 4rem; }
+                            h1, h2, h3 { color: #333; }
+                            .info-box { background: #f8f9fa; border-left: 4px solid #667eea; padding: 1rem; margin: 1rem 0; }
+                            ul { padding-left: 1.5rem; }
+                            li { margin: 0.5rem 0; }
+                            .close-button {
+                                position: fixed;
+                                top: 20px;
+                                right: 20px;
+                                background: #dc3545;
+                                color: white;
+                                border: none;
+                                border-radius: 50%;
+                                width: 50px;
+                                height: 50px;
+                                font-size: 20px;
+                                cursor: pointer;
+                                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                                z-index: 1000;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            .close-button:hover {
+                                background: #c82333;
+                                transform: scale(1.05);
+                            }
+                            .action-buttons {
+                                position: fixed;
+                                bottom: 20px;
+                                right: 20px;
+                                display: flex;
+                                gap: 10px;
+                                z-index: 1000;
+                            }
+                            .action-btn {
+                                background: #007bff;
+                                color: white;
+                                border: none;
+                                padding: 12px 20px;
+                                border-radius: 25px;
+                                cursor: pointer;
+                                font-size: 14px;
+                                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                                transition: all 0.3s ease;
+                            }
+                            .action-btn:hover {
+                                background: #0056b3;
+                                transform: translateY(-2px);
+                            }
+                            .print-btn {
+                                background: #28a745;
+                            }
+                            .print-btn:hover {
+                                background: #1e7e34;
+                            }
+                            @media print {
+                                .close-button, .action-buttons { display: none !important; }
+                                body { margin: 1rem; padding-bottom: 0; }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <button class="close-button" onclick="window.close()" title="ウィンドウを閉じる">
+                            ×
+                        </button>
+                        <div class="action-buttons">
+                            <button class="action-btn print-btn" onclick="window.print()" title="印刷">
+                                🖨️ 印刷
+                            </button>
+                            <button class="action-btn" onclick="window.close()" title="閉じる">
+                                閉じる
+                            </button>
+                        </div>
+                        <h1>${material.title}</h1>
+                        ${contentWithWarning}
+                    </body>
+                    </html>
+                `);
+                printWindow.document.close();
+                printWindow.focus();
+                setTimeout(() => {
+                    printWindow.print();
+                }, 500);
+            }
+        }
+
+        // 全資料一括PDF生成
+        function generateAllPDF() {
+            const printWindow = window.open('', '_blank');
+            let allContent = '';
+            
+            Object.keys(materialsData).forEach(key => {
+                const material = materialsData[key];
+                allContent += `
+                    <div style="page-break-before: always; margin-bottom: 2rem;">
+                        <h1>${material.title}</h1>
+                        ${material.content}
+                    </div>
+                `;
+            });
+            
+            allContent += `
+            <div style="background: #fff3cd; border: 1px solid #ffc107; margin: 2rem 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem; page-break-inside: avoid;">
+                <strong>重要な注意事項：</strong>これらの資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+            </div>`;
+            
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>模擬多機関連携会議資料一式</title>
+                    <meta charset="utf-8">
+                    <style>
+                        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.6; margin: 2rem; }
+                        h1, h2, h3 { color: #333; }
+                        .info-box { background: #f8f9fa; border-left: 4px solid #667eea; padding: 1rem; margin: 1rem 0; }
+                        ul { padding-left: 1.5rem; }
+                        li { margin: 0.5rem 0; }
+                        @media print { body { margin: 1rem; } }
+                    </style>
+                </head>
+                <body>
+                    <h1 style="text-align: center; margin-bottom: 3rem;">（模擬）多機関連携会議 資料一式</h1>
+                    ${allContent}
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.focus();
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
+        }
+    </script>
+
+    <script>
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // カードのホバーエフェクト
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
