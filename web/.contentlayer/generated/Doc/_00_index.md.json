@@ -1,0 +1,18 @@
+{
+  "title": "概要と資料一覧（ランディング）",
+  "updated": "2025-09-05T00:00:00.000Z",
+  "body": {
+    "raw": "\n# 概要\n\n- 開催日: 2025年9月4日（木）\n- 時間: 15:00～16:30\n- 会場: 南部公民館 会議室\n\n## 資料一覧\n\n- 事例① 事例概要: /docs/10_case_overview\n- 事例② 学校情報提供書: /docs/20_school_information_sheet\n- 事例②-2 保護者情報提供書: /docs/21_parent_information_sheet\n- 事例③ 就労アセスメント記録: /docs/work_assessment_record\n- 事例④ ケース会議議事録: /docs/40_case_meeting_minutes\n- 事例⑤ 地域アセスメント: /docs/50_regional_assessment_sheet\n\n## 運営資料\n- 進行台本: /docs/facilitator_script\n- 参加者向け事前説明: /docs/participant_briefing\n- 振り返りシート: /docs/reflection_sheet\n- 評価・改善フォーマット: /docs/evaluation_improvement_format\n\n> 【重要】本資料は模擬会議用に作成した架空の事例です。外部配布禁止。\n\n",
+    "html": "<h1 id=\"概要\"><a href=\"#概要\">概要</a></h1>\n<ul>\n<li>開催日: 2025年9月4日（木）</li>\n<li>時間: 15:00～16:30</li>\n<li>会場: 南部公民館 会議室</li>\n</ul>\n<h2 id=\"資料一覧\"><a href=\"#資料一覧\">資料一覧</a></h2>\n<ul>\n<li>事例① 事例概要: /docs/10_case_overview</li>\n<li>事例② 学校情報提供書: /docs/20_school_information_sheet</li>\n<li>事例②-2 保護者情報提供書: /docs/21_parent_information_sheet</li>\n<li>事例③ 就労アセスメント記録: /docs/work_assessment_record</li>\n<li>事例④ ケース会議議事録: /docs/40_case_meeting_minutes</li>\n<li>事例⑤ 地域アセスメント: /docs/50_regional_assessment_sheet</li>\n</ul>\n<h2 id=\"運営資料\"><a href=\"#運営資料\">運営資料</a></h2>\n<ul>\n<li>進行台本: /docs/facilitator_script</li>\n<li>参加者向け事前説明: /docs/participant_briefing</li>\n<li>振り返りシート: /docs/reflection_sheet</li>\n<li>評価・改善フォーマット: /docs/evaluation_improvement_format</li>\n</ul>\n<blockquote>\n<p>【重要】本資料は模擬会議用に作成した架空の事例です。外部配布禁止。</p>\n</blockquote>"
+  },
+  "_id": "00_index.md",
+  "_raw": {
+    "sourceFilePath": "00_index.md",
+    "sourceFileName": "00_index.md",
+    "sourceFileDir": ".",
+    "contentType": "markdown",
+    "flattenedPath": "00_index"
+  },
+  "type": "Doc",
+  "slug": "00_index"
+}
