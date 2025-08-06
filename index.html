@@ -572,6 +572,10 @@
                     </div>
                     <div class="card-content">
                         <p>実際のケースに基づいた模擬事例資料を準備済み</p>
+                        <div class="info-box" style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 1rem 0; padding: 0.8rem; border-radius: 4px; font-size: 0.9rem;">
+                            <i class="fas fa-exclamation-triangle" style="color: #856404; margin-right: 0.5rem;"></i>
+                            <strong>重要：</strong>以下の資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+                        </div>
                         <div class="materials-grid">
                             <div class="material-item clickable" onclick="openMaterial('case_overview')">
                                 <div class="material-title">事例概要 <i class="fas fa-external-link-alt"></i></div>
@@ -672,7 +676,8 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 就労選択支援事業 多機関連携プロジェクト</p>
-            <p><i class="fas fa-shield-alt"></i> 本資料は模擬会議用に作成した架空の事例です。外部配布禁止。</p>
+            <p><i class="fas fa-exclamation-triangle"></i> <strong>重要な注意事項：</strong>本資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。</p>
+            <p><i class="fas fa-shield-alt"></i> 外部配布禁止。研修・学習目的のみでの使用に限定します。</p>
         </div>
     </footer>
 
@@ -1079,7 +1084,15 @@
             const material = materialsData[materialId];
             if (material) {
                 document.getElementById('modalTitle').textContent = material.title;
-                document.getElementById('modalBody').innerHTML = material.content;
+                
+                // コンテンツに注意書きを追加
+                const contentWithWarning = material.content + `
+                <div style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 2rem 0 0 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+                    <i class="fas fa-exclamation-triangle" style="color: #856404; margin-right: 0.5rem;"></i>
+                    <strong>注意：</strong>この事例は模擬会議用に作成した架空のものです。実在する人物・団体とは一切関係ありません。
+                </div>`;
+                
+                document.getElementById('modalBody').innerHTML = contentWithWarning;
                 document.getElementById('materialModal').style.display = 'block';
                 document.body.style.overflow = 'hidden';
             }
