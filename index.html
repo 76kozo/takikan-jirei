@@ -371,9 +371,32 @@
 
         .modal-body {
             padding: 2rem;
+            line-height: 1.8;
             max-height: 70vh;
             overflow-y: auto;
-            line-height: 1.6;
+        }
+
+        .pdf-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            background: #f8f9fa;
+            border-color: #ff9800;
+            color: #ff9800;
+            transform: translateX(5px);
+        }
+
+        .pdf-link i {
+            margin-right: 0.5rem;
+            color: #ff5722;
         }
 
         .modal-body h2 {
@@ -665,7 +688,7 @@
             <section class="cta-section">
                 <h3>実践に向けて</h3>
                 <p>2025年10月1日の就労選択支援事業開始に向けて、<br>効果的な多機関連携体制を構築しましょう。</p>
-                <a href="#" class="btn">
+                <a href="#" class="btn" onclick="openDownloadModal()">
                     <i class="fas fa-download"></i>
                     資料ダウンロード
                 </a>
@@ -692,6 +715,85 @@
             </div>
             <div class="modal-body" id="modalBody">
                 <!-- 資料内容がここに表示されます -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ダウンロード選択モーダル -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2 id="downloadModalTitle">資料閲覧・ダウンロード</h2>
+                <span class="close" onclick="closeDownloadModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="downloadModalBody">
+                <div style="background: #e3f2fd; border-left: 4px solid #2196f3; margin: 0 0 2rem 0; padding: 1.5rem; border-radius: 4px;">
+                    <i class="fas fa-mobile-alt" style="color: #1976d2; margin-right: 0.5rem;"></i>
+                    <strong>📱 Web閲覧がおすすめです！</strong><br>
+                    <span style="font-size: 0.9rem; color: #555;">スマホでも見やすく、会議中もサッと確認できます</span>
+                </div>
+                
+                <div class="download-options">
+                    <div class="download-section">
+                        <h3 style="color: #2196f3; margin-bottom: 1rem;">
+                            <i class="fas fa-globe"></i> Web閲覧（推奨）
+                        </h3>
+                        <p style="margin-bottom: 1.5rem; color: #666;">上部の「準備資料」セクションから各資料をクリックしてご覧ください</p>
+                        <button class="btn" onclick="closeDownloadModal(); scrollToMaterials();" style="background: #2196f3; margin-bottom: 2rem;">
+                            <i class="fas fa-arrow-up"></i> 準備資料セクションへ
+                        </button>
+                    </div>
+                    
+                    <div class="download-section" style="border-top: 1px solid #eee; padding-top: 2rem;">
+                        <h3 style="color: #ff9800; margin-bottom: 1rem;">
+                            <i class="fas fa-file-pdf"></i> PDFダウンロード
+                        </h3>
+                        <p style="margin-bottom: 1.5rem; color: #666;">印刷やオフライン閲覧をご希望の方はこちら</p>
+                        
+                        <div class="pdf-options" style="display: grid; gap: 1rem;">
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin: 0 0 0.5rem 0; color: #333;">
+                                    <i class="fas fa-file-alt"></i> 個別資料
+                                </h4>
+                                <div style="display: grid; gap: 0.5rem; margin-top: 1rem;">
+                                    <a href="#" class="pdf-link" onclick="generatePDF('case_overview')">
+                                        <i class="fas fa-download"></i> 事例概要.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('school_info')">
+                                        <i class="fas fa-download"></i> 学校情報提供書.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('parent_info')">
+                                        <i class="fas fa-download"></i> 保護者情報提供書.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('work_assessment')">
+                                        <i class="fas fa-download"></i> 作業アセスメント記録.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('meeting_minutes')">
+                                        <i class="fas fa-download"></i> ケース会議議事録.pdf
+                                    </a>
+                                    <a href="#" class="pdf-link" onclick="generatePDF('regional_assessment')">
+                                        <i class="fas fa-download"></i> 地域アセスメント.pdf
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin: 0 0 0.5rem 0; color: #333;">
+                                    <i class="fas fa-file-archive"></i> 一括ダウンロード
+                                </h4>
+                                <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 1rem 0;">全資料をまとめてダウンロード</p>
+                                <a href="#" class="btn" onclick="generateAllPDF()" style="background: #ff9800; width: 100%;">
+                                    <i class="fas fa-download"></i> 模擬会議資料一式.pdf
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #fff3cd; border-left: 4px solid #ffc107; margin: 2rem 0 0 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+                    <i class="fas fa-exclamation-triangle" style="color: #856404; margin-right: 0.5rem;"></i>
+                    <strong>注意：</strong>これらの資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+                </div>
             </div>
         </div>
     </div>
@@ -1094,23 +1196,176 @@
                 
                 document.getElementById('modalBody').innerHTML = contentWithWarning;
                 document.getElementById('materialModal').style.display = 'block';
-                document.body.style.overflow = 'hidden';
             }
         }
 
-        // モーダルを閉じる関数
-        function closeModal() {
-            document.getElementById('materialModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
+        // 全資料一括PDF生成
+        function generateAllPDF() {
+            const printWindow = window.open('', '_blank');
+            let allContent = '';
+            
+            Object.keys(materialsData).forEach(key => {
+                const material = materialsData[key];
+                allContent += `
+                    <div style="page-break-before: always; margin-bottom: 2rem;">
+                        <h1>${material.title}</h1>
+                        ${material.content}
+                    </div>
+                `;
+            });
+            
+            allContent += `
+            <div style="background: #fff3cd; border: 1px solid #ffc107; margin: 2rem 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem; page-break-inside: avoid;">
+                <strong>重要な注意事項：</strong>これらの資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+            </div>`;
+            
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>模擬多機関連携会議資料一式</title>
+                    <meta charset="utf-8">
+                    <style>
+                        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.6; margin: 2rem; }
+                        h1, h2, h3 { color: #333; }
+                        .info-box { background: #f8f9fa; border-left: 4px solid #667eea; padding: 1rem; margin: 1rem 0; }
+                        ul { padding-left: 1.5rem; }
+                        li { margin: 0.5rem 0; }
+                        @media print { body { margin: 1rem; } }
+                    </style>
+                </head>
+                <body>
+                    <h1 style="text-align: center; margin-bottom: 3rem;">（模擬）多機関連携会議 資料一式</h1>
+                    ${allContent}
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.focus();
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
         }
 
         // モーダル外クリックで閉じる
         window.onclick = function(event) {
-            const modal = document.getElementById('materialModal');
-            if (event.target === modal) {
-                closeModal();
+            const materialModal = document.getElementById('materialModal');
+            const downloadModal = document.getElementById('downloadModal');
+            
+            if (event.target === materialModal) {
+                closeMaterial();
+            }
+            if (event.target === downloadModal) {
+                closeDownloadModal();
             }
         }
+
+        // ダウンロードモーダルを開く関数
+        function openDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // ダウンロードモーダルを閉じる関数
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 準備資料セクションにスクロール
+        function scrollToMaterials() {
+            const materialsSection = document.querySelector('.card:nth-child(3)');
+            materialsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // 個別PDF生成（現在はブラウザ印刷機能を使用）
+        function generatePDF(materialId) {
+            const material = materialsData[materialId];
+            if (material) {
+                // 新しいウィンドウで資料を開いて印刷
+                const printWindow = window.open('', '_blank');
+                const contentWithWarning = material.content + `
+                <div style="background: #fff3cd; border: 1px solid #ffc107; margin: 2rem 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem; page-break-inside: avoid;">
+                    <strong>注意：</strong>この事例は模擬会議用に作成した架空のものです。実在する人物・団体とは一切関係ありません。
+                </div>`;
+                
+                printWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>${material.title}</title>
+                        <meta charset="utf-8">
+                        <style>
+                            body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.6; margin: 2rem; }
+                            h1, h2, h3 { color: #333; }
+                            .info-box { background: #f8f9fa; border-left: 4px solid #667eea; padding: 1rem; margin: 1rem 0; }
+                            ul { padding-left: 1.5rem; }
+                            li { margin: 0.5rem 0; }
+                            @media print { body { margin: 1rem; } }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>${material.title}</h1>
+                        ${contentWithWarning}
+                    </body>
+                    </html>
+                `);
+                printWindow.document.close();
+                printWindow.focus();
+                setTimeout(() => {
+                    printWindow.print();
+                }, 500);
+            }
+        }
+
+        // 全資料一括PDF生成
+        function generateAllPDF() {
+            const printWindow = window.open('', '_blank');
+            let allContent = '';
+            
+            Object.keys(materialsData).forEach(key => {
+                const material = materialsData[key];
+                allContent += `
+                    <div style="page-break-before: always; margin-bottom: 2rem;">
+                        <h1>${material.title}</h1>
+                        ${material.content}
+                    </div>
+                `;
+            });
+            
+            allContent += `
+            <div style="background: #fff3cd; border: 1px solid #ffc107; margin: 2rem 0; padding: 1rem; border-radius: 4px; font-size: 0.9rem; page-break-inside: avoid;">
+                <strong>重要な注意事項：</strong>これらの資料は模擬会議用に作成した架空の事例です。実在する人物・団体とは一切関係ありません。
+            </div>`;
+            
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>模擬多機関連携会議資料一式</title>
+                    <meta charset="utf-8">
+                    <style>
+                        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.6; margin: 2rem; }
+                        h1, h2, h3 { color: #333; }
+                        .info-box { background: #f8f9fa; border-left: 4px solid #667eea; padding: 1rem; margin: 1rem 0; }
+                        ul { padding-left: 1.5rem; }
+                        li { margin: 0.5rem 0; }
+                        @media print { body { margin: 1rem; } }
+                    </style>
+                </head>
+                <body>
+                    <h1 style="text-align: center; margin-bottom: 3rem;">（模擬）多機関連携会議 資料一式</h1>
+                    ${allContent}
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.focus();
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
+        }
+    </script>
 
     <script>
         // スムーススクロール
