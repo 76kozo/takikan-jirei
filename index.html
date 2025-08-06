@@ -709,7 +709,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="modalTitle">資料詳細</h2>
-                <button class="close" onclick="closeModal()">
+                <button class="close" onclick="closeMaterial()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -1196,7 +1196,14 @@
                 
                 document.getElementById('modalBody').innerHTML = contentWithWarning;
                 document.getElementById('materialModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
             }
+        }
+
+        // モーダルを閉じる関数
+        function closeMaterial() {
+            document.getElementById('materialModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         // 全資料一括PDF生成
